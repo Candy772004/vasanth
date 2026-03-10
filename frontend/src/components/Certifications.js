@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FiAward, FiExternalLink } from 'react-icons/fi';
+import { FiAward } from 'react-icons/fi';
 import './Certifications.css';
 
 const certs = [
