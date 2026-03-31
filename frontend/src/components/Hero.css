@@ -8,6 +8,7 @@
   padding-top: 80px;
 }
 
+/* ─── Background decorations ─── */
 .hero-grid {
   position: absolute;
   inset: 0;
@@ -25,45 +26,41 @@
   pointer-events: none;
   animation: pulse-glow 6s ease-in-out infinite;
 }
-
 .glow-1 {
-  width: 500px;
-  height: 500px;
+  width: 420px; height: 420px;
   background: rgba(0, 212, 255, 0.08);
-  top: -100px;
-  right: 100px;
+  top: -80px; right: 80px;
 }
-
 .glow-2 {
-  width: 400px;
-  height: 400px;
+  width: 360px; height: 360px;
   background: rgba(124, 58, 237, 0.08);
-  bottom: 50px;
-  left: -100px;
+  bottom: 60px; left: -80px;
 }
 
+/* ─── Two-column grid ─── */
 .hero-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
   align-items: center;
   position: relative;
   z-index: 1;
-  padding-top: 40px;
+  padding: 40px 0 60px;
 }
 
+/* ─── Left: text ─── */
 .hero-greeting {
   font-size: 0.95rem;
   color: var(--text-secondary);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .hero-name {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 800;
-  line-height: 1.05;
-  margin-bottom: 20px;
+  line-height: 1.1;
+  margin-bottom: 16px;
   color: var(--text-primary);
   letter-spacing: -0.02em;
 }
@@ -72,33 +69,33 @@
 
 .hero-role {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
   font-weight: 600;
-  margin-bottom: 24px;
-  min-height: 44px;
+  margin-bottom: 20px;
+  min-height: 40px;
   color: var(--text-secondary);
 }
 
 .typed-text { color: var(--accent); }
 
 .hero-bio {
-  font-size: 1rem;
+  font-size: 0.97rem;
   color: var(--text-secondary);
   line-height: 1.8;
-  max-width: 520px;
-  margin-bottom: 36px;
+  max-width: 480px;
+  margin-bottom: 32px;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 36px;
+  gap: 10px;
+  margin-bottom: 28px;
 }
 
 .hero-socials {
   display: flex;
-  gap: 12px;
+  gap: 10px;
 }
 
 .social-link {
@@ -121,22 +118,30 @@
   box-shadow: 0 6px 20px var(--accent-glow);
 }
 
+/* ─── Right: visual column ─── */
+.hero-visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
 /* Profile photo */
 .hero-photo-wrap {
   position: relative;
-  width: 110px;
-  height: 110px;
-  margin: 0 auto 24px;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px;
 }
 
 .hero-photo-ring {
   position: absolute;
   inset: -5px;
   border-radius: 50%;
-  border: 2px solid var(--accent);
+  border: 2px dashed var(--accent);
   opacity: 0.5;
   animation: spin-slow 10s linear infinite;
-  border-style: dashed;
 }
 
 .hero-photo {
@@ -150,11 +155,8 @@
 }
 
 /* Code card */
-.hero-visual {
-  position: relative;
-}
-
 .code-card {
+  width: 100%;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 16px;
@@ -167,41 +169,37 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 14px 18px;
+  padding: 12px 16px;
   background: var(--bg-secondary);
   border-bottom: 1px solid var(--border);
 }
 
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-}
-.dot.red { background: #ff5f57; }
-.dot.yellow { background: #febc2e; }
+.dot { width: 11px; height: 11px; border-radius: 50%; }
+.dot.red   { background: #ff5f57; }
+.dot.yellow{ background: #febc2e; }
 .dot.green { background: #28c840; }
 
 .code-filename {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--text-muted);
-  margin-left: 8px;
+  margin-left: 6px;
 }
 
 .code-body {
-  padding: 20px;
-  font-size: 0.82rem;
-  line-height: 1.8;
+  padding: 18px 20px;
+  font-size: 0.8rem;
+  line-height: 1.75;
   color: var(--text-secondary);
-  white-space: pre-wrap;
-  word-break: break-word;
+  white-space: pre;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
 
-/* Stat badges */
-/* Stat badges row wrapper – transparent on desktop, flex row on mobile */
+/* Floating stat badges — positioned relative to hero-visual on desktop */
 .stat-badges-row {
-  position: static;
+  /* On desktop: transparent passthrough — children are absolute */
+  position: absolute;
+  inset: 0;
   pointer-events: none;
 }
 
@@ -211,104 +209,137 @@
   background: var(--bg-card);
   border: 1px solid var(--border-accent);
   border-radius: 12px;
-  padding: 12px 16px;
+  padding: 10px 14px;
   display: flex;
   flex-direction: column;
   gap: 2px;
   box-shadow: var(--shadow-glow);
+  z-index: 2;
 }
 
-.stat-1 {
-  top: -24px;
-  right: -20px;
-}
-
-.stat-2 {
-  bottom: -20px;
-  left: -24px;
-}
+/* stat-1: top-right of visual card */
+.stat-1 { top: 60px;  right: -14px; }
+/* stat-2: bottom-left, but not inside card content */
+.stat-2 { bottom: 80px; left: -14px; }
 
 .stat-num {
   font-family: 'Syne', sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 800;
   color: var(--accent);
 }
 
 .stat-label {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: var(--text-secondary);
   white-space: nowrap;
 }
 
+/* Scroll indicator */
 .scroll-indicator {
   position: absolute;
-  bottom: 30px;
+  bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
   color: var(--text-muted);
   cursor: pointer;
   z-index: 1;
 }
-
 .scroll-indicator:hover { color: var(--accent); }
 
+/* ──────────────────────────────────────────
+   TABLET  ≤ 900px
+────────────────────────────────────────── */
 @media (max-width: 900px) {
+  .hero { padding-top: 70px; }
+
   .hero-content {
     grid-template-columns: 1fr;
-    gap: 36px;
-    padding-bottom: 60px;
+    gap: 0;
+    padding: 32px 0 80px;
     text-align: center;
   }
 
-  .hero-visual {
-    order: -1;
-    max-width: 420px;
-    margin: 0 auto;
-  }
+  /* Text first, visual second */
+  .hero-text  { order: 1; }
+  .hero-visual { order: 2; margin-top: 40px; }
 
   .hero-bio { margin-left: auto; margin-right: auto; }
   .hero-actions { justify-content: center; }
   .hero-socials { justify-content: center; }
 
-  .hero-name { font-size: 2.8rem; }
-
-  /* Bring stat badges inside flow so they don't clip */
-  .stat-badge {
-    position: static;
-    display: inline-flex;
-  }
-
+  /* Visual becomes normal flow column */
   .hero-visual {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 0;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
+  /* Stat badges: pull out of absolute container onto a flex row */
   .stat-badges-row {
+    position: static;
     display: flex;
-    gap: 16px;
+    gap: 12px;
+    justify-content: center;
+    width: 100%;
+    margin-top: 16px;
+    pointer-events: all;
+  }
+
+  .stat-badge {
+    position: static;
+    flex: 1;
+    max-width: 160px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .code-card { width: 100%; }
+  .hero-photo-wrap { width: 88px; height: 88px; }
+}
+
+/* ──────────────────────────────────────────
+   MOBILE  ≤ 600px
+────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .hero { padding-top: 68px; }
+  .hero-name { font-size: 2rem; }
+  .hero-bio  { font-size: 0.92rem; }
+
+  .code-body {
+    font-size: 0.72rem;
+    padding: 12px 14px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .hero-photo-wrap { width: 80px; height: 80px; }
+
+  .glow-1 { width: 240px; height: 240px; right: -40px; top: -40px; }
+  .glow-2 { width: 200px; height: 200px; left:  -40px; }
+}
+
+/* ──────────────────────────────────────────
+   SMALL MOBILE  ≤ 480px
+────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .hero-name { font-size: 1.85rem; }
+  .hero-role { font-size: 1rem; }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-actions .btn {
     justify-content: center;
     width: 100%;
   }
 
-  /* Keep code card readable */
-  .code-card { width: 100%; }
-  .hero-photo-wrap { width: 90px; height: 90px; }
-}
-
-@media (max-width: 600px) {
-  .hero { padding-top: 72px; }
-  .hero-name { font-size: 2.2rem; }
-  .hero-bio { font-size: 0.93rem; }
-  .code-body { font-size: 0.75rem; padding: 14px; }
-}
-
-@media (max-width: 480px) {
-  .hero-actions { flex-direction: column; align-items: stretch; }
-  .hero-actions .btn { justify-content: center; width: 100%; }
-  .hero-name { font-size: 1.95rem; }
-  .glow-1 { width: 260px; height: 260px; right: -60px; }
-  .glow-2 { width: 220px; height: 220px; left: -60px; }
+  .stat-badge { padding: 8px 12px; }
+  .stat-num   { font-size: 1.1rem; }
 }
