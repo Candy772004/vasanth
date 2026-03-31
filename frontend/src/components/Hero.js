@@ -146,23 +146,25 @@ const Hero = () => {
             </pre>
           </div>
 
-          {/* Floating stats */}
-          <motion.div
-            className="stat-badge stat-1"
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <span className="stat-num">96%</span>
-            <span className="stat-label">Model Accuracy</span>
-          </motion.div>
-          <motion.div
-            className="stat-badge stat-2"
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-          >
-            <span className="stat-num">5+</span>
-            <span className="stat-label">AI Projects</span>
-          </motion.div>
+          {/* Floating stats – row on mobile, absolute on desktop */}
+          <div className="stat-badges-row">
+            <motion.div
+              className="stat-badge stat-1"
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <span className="stat-num">96%</span>
+              <span className="stat-label">Model Accuracy</span>
+            </motion.div>
+            <motion.div
+              className="stat-badge stat-2"
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+            >
+              <span className="stat-num">5+</span>
+              <span className="stat-label">AI Projects</span>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
 

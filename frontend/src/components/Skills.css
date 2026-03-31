@@ -7,7 +7,13 @@
   flex-wrap: wrap;
   gap: 8px;
   margin: 36px 0 48px;
+  /* Fallback: horizontal scroll on very narrow devices */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
+
+.category-tabs::-webkit-scrollbar { display: none; }
 
 .cat-tab {
   display: flex;
@@ -31,7 +37,7 @@
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
   gap: 24px;
 }
 
@@ -81,7 +87,7 @@
   gap: 14px;
 }
 
-.skill-item {}
+
 
 .skill-header {
   display: flex;
@@ -115,4 +121,6 @@
 
 @media (max-width: 768px) {
   .skills-grid { grid-template-columns: 1fr; }
+  .category-tabs { flex-wrap: nowrap; padding-bottom: 4px; }
+  .cat-tab { white-space: nowrap; flex-shrink: 0; }
 }

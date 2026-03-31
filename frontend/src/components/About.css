@@ -109,7 +109,6 @@
 .stat-desc { font-size: 0.78rem; color: var(--text-muted); }
 
 /* About text */
-.about-text {}
 
 .about-paragraphs {
   display: flex;
@@ -169,9 +168,16 @@
 
 @media (max-width: 900px) {
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
-  .about-visual { position: static; }
+  .about-visual { position: static; flex-direction: row; flex-wrap: wrap; justify-content: center; }
+  .about-stats { max-width: 380px; }
+}
+
+@media (max-width: 600px) {
+  .about-info-grid { grid-template-columns: 1fr; }
+  .about-visual { flex-direction: column; }
 }
 
 @media (max-width: 480px) {
-  .about-info-grid { grid-template-columns: 1fr; }
+  .about-stats { grid-template-columns: 1fr 1fr; }
+  .avatar-container { width: 180px; height: 180px; }
 }

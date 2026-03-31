@@ -119,10 +119,12 @@
 }
 
 @media (max-width: 768px) {
-  .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 32px; padding: 48px 20px 32px; }
   .footer-bottom-inner { flex-direction: column; text-align: center; }
 }
 
 @media (max-width: 480px) {
-  .footer-links-group { flex-direction: column; gap: 24px; }
+  .footer-links-group { flex-direction: column; gap: 20px; }
+  .footer-inner { padding: 40px 16px 28px; }
+  .footer-logo { font-size: 1.2rem; }
 }

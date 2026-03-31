@@ -146,10 +146,17 @@
 }
 
 @media (max-width: 900px) {
-  .contact-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; gap: 28px; }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 640px) {
   .form-row { grid-template-columns: 1fr; }
-  .contact-form { padding: 20px; }
+  .contact-form { padding: 24px 20px; }
+}
+
+@media (max-width: 480px) {
+  .contact-form { padding: 18px 14px; }
+  .contact-info-card { padding: 20px; }
+  .availability-card { padding: 16px; }
+  .submit-btn { font-size: 0.9rem; }
 }

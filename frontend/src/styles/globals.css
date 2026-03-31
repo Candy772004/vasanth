@@ -241,6 +241,21 @@ a {
 .mt-12 { margin-top: 3rem; }
 
 @media (max-width: 768px) {
-  .section { padding: 70px 0; }
+  .section { padding: 72px 0; }
+  .container { padding: 0 20px; }
+}
+
+@media (max-width: 480px) {
+  .section { padding: 56px 0; }
   .container { padding: 0 16px; }
+
+  .section-title { font-size: 1.75rem; }
+  .section-subtitle { font-size: 0.95rem; }
+
+  /* Ensure all buttons are finger-friendly */
+  .btn { min-height: 44px; padding: 10px 22px; }
+}
+
+@media (max-width: 360px) {
+  .container { padding: 0 12px; }
 }
